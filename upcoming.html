@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Upcoming Events</title>
+
+<style>
+/* ================= GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+/* ================= PAGE HEADINGS ================= */
+h2 {
+  text-align: center;
+  margin: 40px 0 20px 0;
+  color: #ff6a00;
+  font-size: 28px;
+}
+
+/* ================= UPCOMING EVENTS GRID ================= */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0 5%;
+}
+
+.event-block {
+  background: white;
+  border-left: 5px solid #ff6a00;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.event-block h3 {
+  font-size: 18px;
+  color: #ff6a00;
+  margin-bottom: 5px;
+}
+
+.event-block p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+/* ================= REGISTERED EVENTS ================= */
+#upcomingList .registered-card {
+  background: white;
+  margin: 15px 5%;
+  padding: 20px;
+  border-left: 5px solid #ff6a00;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* ================= LEADERBOARD ================= */
+#leaderboard {
+  padding: 40px 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.leaderboard-list {
+  background: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.leaderboard-list .player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dotted #ffb74d;
+}
+
+.leaderboard-list .player:last-child {
+  border-bottom: none;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-info span.name {
+  font-weight: 600;
+  color: #333;
+}
+
+.player-info span.badges {
+  font-size: 14px;
+  color: #ff6a00;
+}
+
+.player-stars {
+  color: #ffd700;
+  font-size: 18px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #111;
+  color: white;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #ff6a00;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  nav ul { display: none; }
+  .hamburger { display: block; }
+  .events-grid { grid-template-columns: 1fr; }
+  #leaderboard { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+  <div class="logo">University Hub</div>
+  <ul>
+     <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+  </ul>
+  <div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">☰</div>
+</nav>
+
+<!-- ================= UPCOMING EVENTS ================= -->
+<h2>Upcoming Events</h2>
+<div class="events-grid">
+  <div class="event-block">
+    <h3>AI & Robotics Seminar</h3>
+    <p>Date: Mar 10, 2026</p>
+    <p>Time: 11:00 AM - 5:00 PM</p>
+  </div>
+  <div class="event-block">
+    <h3>Research Paper Presentation</h3>
+    <p>Date: Mar 15, 2026</p>
+    <p>Time: 9:00 AM - 2:00 PM</p>
+  </div>
+  <div class="event-block">
+    <h3>Campus Music Festival</h3>
+    <p>Date: Mar 20, 2026</p>
+    <p>Time: 10:00 AM - 12:00 PM</p>
+  </div>
+</div>
+
+<!-- ================= REGISTERED EVENTS ================= -->
+<h2>Your Registered Events</h2>
+<div id="upcomingList"></div>
+
+<!-- ================= LEADERBOARD ================= -->
+<section id="leaderboard">
+  <div class="leaderboard-list">
+    <h2>Leaderboard</h2>
+    <div class="player">
+      <div class="player-info">
+        <span class="name">Aarav Sharma</span>
+        <span class="badges">Badges: 22</span>
+      </div>
+      <div class="player-stars">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="player">
+      <div class="player-info">
+        <span class="name">Saanvi Patel</span>
+        <span class="badges">Badges: 20</span>
+      </div>
+      <div class="player-stars">⭐⭐⭐⭐⭐</div>
+    </div>
+    <div class="player">
+      <div class="player-info">
+        <span class="name">Rohan Kumar</span>
+        <span class="badges">Badges: 19</span>
+      </div>
+      <div class="player-stars">⭐⭐⭐⭐</div>
+    </div>
+    <div class="player">
+      <div class="player-info">
+        <span class="name">Isha Singh</span>
+        <span class="badges">Badges: 18</span>
+      </div>
+      <div class="player-stars">⭐⭐⭐⭐</div>
+    </div>
+    <div class="player">
+      <div class="player-info">
+        <span class="name">Vivaan Mehta</span>
+        <span class="badges">Badges: 12</span>
+      </div>
+      <div class="player-stars">⭐⭐⭐</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 University Hub
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Cultural Events</title>
+
+<style>
+/* ================= GLOBAL STYLES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+/* ================= NAVIGATION BAR ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+/* ================= MAIN CONTENT ================= */
+main {
+    flex: 1;
+    padding: 10px 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+/* ================= HEADINGS ================= */
+h2 {
+    text-align: center;
+    color: #ff6a00;
+    margin: 20px 0;
+}
+
+/* ================= EVENTS GRID ================= */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+    justify-items: center;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ================= EVENT CARD ================= */
+.card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px; /* Same size as Academic cards */
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    color: #ff6a00;
+    margin: 8px 0;
+}
+
+.card-content p,
+.card-content .date,
+.card-content .time,
+.card-content .guest {
+    font-size: 14px;
+    color: #555;
+    margin: 2px 0;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #ff6a00;
+    color: white;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #e65c00;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    nav ul { display: none; }
+    .hamburger { display: block; }
+    .events-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">University Hub</div>
+    <ul>
+         <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+    </ul>
+    <div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">☰</div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+    <h2>Cultural Events</h2>
+
+    <div class="events-grid">
+        <!-- Campus Music Festival -->
+        <div class="card">
+            <img src="CampusMusicFestival.webp" alt="Campus Music Festival">
+            <div class="card-content">
+                <div class="date">May 10, 2026</div>
+                <div class="time">10:00 AM – 12:00 PM</div>
+                <div class="guest">Chief Guest: A.R. Rahman</div>
+                <h3>Campus Music Festival</h3>
+                <p>Musical celebration with solo, band, and instrumental performances.</p>
+                <button onclick="registerEvent('Campus Music Festival')">Register Now</button>
+            </div>
+        </div>
+
+        <!-- Arts Exhibition -->
+        <div class="card">
+            <img src="ArtsExhibition.png" alt="Arts Exhibition">
+            <div class="card-content">
+                <div class="date">May 18, 2026</div>
+                <div class="time">11:00 AM – 1:00 PM</div>
+                <div class="guest">Chief Guest: Anjolie Ela Menon</div>
+                <h3>Arts Exhibition</h3>
+                <p>Showcase of paintings, photography, and creative installations.</p>
+                <button onclick="registerEvent('Arts Exhibition')">Register Now</button>
+            </div>
+        </div>
+
+        <!-- Dance Fest -->
+        <div class="card">
+            <img src="DanceFest.png" alt="Dance Fest">
+            <div class="card-content">
+                <div class="date">May 22, 2026</div>
+                <div class="time">3:00 PM – 5:00 PM</div>
+                <div class="guest">Chief Guest: Prabhu Deva</div>
+                <h3>Dance Fest</h3>
+                <p>High-energy dance competition: classical, folk, and contemporary styles.</p>
+                <button onclick="registerEvent('Dance Fest')">Register Now</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    © 2026 University Hub
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

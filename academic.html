@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Academic Events</title>
+
+<style>
+/* ================= GLOBAL STYLES ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= ACADEMIC CONTENT ================= */
+.container {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height: calc(100vh - 60px - 60px); /* full window minus nav & footer */
+    padding:20px 5%;
+    overflow:auto; /* allow scrolling within content if needed */
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#ff6a00;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    flex-grow:1;
+}
+
+.card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.card:hover{transform:translateY(-5px);}
+
+.card img{
+    width:100%;
+    height:200px; /* slightly bigger images */
+    object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.card-content .date{
+    font-size:13px;
+    color:#999;
+    margin-bottom:5px;
+    text-transform:uppercase;
+}
+
+.card-content h3{
+    margin-bottom:8px;
+    color:#ff6a00;
+    font-size:20px;
+}
+
+.card-content p{
+    margin-bottom:5px;
+    font-size:15px;
+}
+
+.card-content .guest, .card-content .time{
+    font-size:14px;
+    color:#555;
+    margin-bottom:3px;
+}
+
+.card button{
+    background:#ff6a00;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.card button:hover{
+    background:#e65c00;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    height:60px; /* same as home/dashboard */
+    background:#111;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:16px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    nav ul{display:none;}
+    .hamburger{display:block;}
+    .cards{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">University Hub</div>
+    <ul id="navLinks">
+         <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+    </ul>
+    <div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">☰</div>
+</nav>
+
+<!-- ================= ACADEMIC EVENTS ================= -->
+<div class="container">
+    <h2>Academic Events</h2>
+    <div class="cards">
+
+        <div class="card">
+            <img src="DataScienceWorkshop.jpg" alt="Data Science Workshop">
+            <div class="card-content">
+                <div class="date">Feb 25, 2026</div>
+                <div class="time">10:00 AM - 4:00 PM</div>
+                <h3>Data Science Workshop</h3>
+                <p>Hands-on workshop on data science and machine learning for students.</p>
+                <div class="guest">Chief Guest: Dr. Ananya Rao</div>
+                <button onclick="registerEvent('Data Science Workshop')">Register Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="AI&RoboticsSeminar.png" alt="AI & Robotics Seminar">
+            <div class="card-content">
+                <div class="date">Mar 1, 2026</div>
+                <div class="time">11:00 AM - 5:00 PM</div>
+                <h3>AI & Robotics Seminar</h3>
+                <p>Explore the latest trends in AI and robotics with industry experts.</p>
+                <div class="guest">Chief Guest: Prof. Rajiv Menon</div>
+                <button onclick="registerEvent('AI & Robotics Seminar')">Register Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="ResearchPaperPresentation.jpg" alt="Research Paper Presentation">
+            <div class="card-content">
+                <div class="date">Mar 5, 2026</div>
+                <div class="time">9:00 AM - 2:00 PM</div>
+                <h3>Research Paper Presentation</h3>
+                <p>Students showcase their academic research and innovative projects.</p>
+                <div class="guest">Chief Guest: Dr. Suresh Kumar</div>
+                <button onclick="registerEvent('Research Paper Presentation')">Register Now</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    © 2026 University Hub
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

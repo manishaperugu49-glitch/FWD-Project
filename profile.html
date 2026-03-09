@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Profile</title>
+<style>
+/* ================= GLOBAL STYLES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= PROFILE BLOCK ================= */
+.profile-container {
+    height: calc(100vh - 70px - 60px); /* full window minus nav and footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 40px;
+    width: 600px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.profile-card h2 {
+    font-size: 28px;
+    color: #ff6a00;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-card .stars {
+    color: gold;
+    font-size: 20px;
+}
+
+.profile-card p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #555;
+}
+
+.profile-card .stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.profile-card .stats div {
+    background: #ffefd5;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.profile-card .stats div h3 {
+    font-size: 22px;
+    color: #ff6a00;
+    margin-bottom: 5px;
+}
+
+.profile-card .stats div p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    nav ul{display:none;}
+    .hamburger{display:block;}
+    .profile-card{width:90%;}
+    .profile-card .stats{flex-direction:column;gap:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">University Hub</div>
+    <ul>
+         <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+    </ul>
+    <div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">☰</div>
+</nav>
+
+<!-- ================= PROFILE CARD ================= -->
+<div class="profile-container">
+    <div class="profile-card">
+        <h2>Manisha Perugu <span class="stars">⭐⭐⭐☆☆</span></h2>
+        <p><strong>Roll Number:</strong> 2520030054</p>
+        <p><strong>Email:</strong> perugumanisha@klh.edu.in</p>
+        <p><strong>Branch:</strong> Computer Science</p>
+        <p><strong>Year:</strong> 1st Year</p>
+
+        <div class="stats">
+            <div>
+                <h3>12</h3>
+                <p>Events Participated</p>
+            </div>
+            <div>
+                <h3>5</h3>
+                <p>Events Registered</p>
+            </div>
+            <div>
+                <h3>2</h3>
+                <p>Badges Earned</p>
+            </div>
+        </div>
+
+        <p style="margin-top:20px;"><strong>Rank:</strong> 11</p>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    © 2026 University Hub
+</footer>
+
+</body>
+</html>

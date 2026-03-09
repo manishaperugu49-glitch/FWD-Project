@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Dashboard</title>
+<style>
+/* ================= GLOBAL STYLES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ================= NAVIGATION (MATCH HOME PAGE) ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+/* ================= DASHBOARD ================= */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 60px - 60px); /* full window minus nav & footer */
+    padding: 20px 5%;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #ff6a00;
+}
+
+/* ================= DASHBOARD GRID ================= */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.stat {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat:hover {
+    transform: translateY(-6px);
+}
+
+/* Slightly bigger images for cards */
+.stat img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.stat h3 {
+    font-size: 22px;
+    color: #ff6a00;
+    margin-bottom: 6px;
+}
+
+.stat p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1000px){
+    .dashboard {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+    nav ul {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">University Hub</div>
+    <ul>
+        <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+    </ul>
+    <div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">☰</div>
+</nav>
+
+<!-- ================= DASHBOARD CONTENT ================= -->
+<div class="dashboard-container">
+    <div class="welcome">
+        <h1>Welcome!</h1>
+    </div>
+
+    <h2>Your Dashboard</h2>
+
+    <div class="dashboard">
+        <div class="stat">
+            <img src="Badges.png" alt="Badges">
+            <h3>12</h3>
+            <p>Badges Earned</p>
+        </div>
+
+        <div class="stat">
+            <img src="Academic.png" alt="Academic">
+            <p>Academic Events</p>
+        </div>
+
+        <div class="stat">
+            <img src="Cultural.png" alt="Cultural">
+            <p>Cultural Events</p>
+        </div>
+
+        <div class="stat">
+            <img src="Profile.png" alt="Profile">
+            <h3>My Profile</h3>
+            <p>View & Manage Profile</p>
+        </div>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    © 2026 University Hub
+</footer>
+
+</body>
+</html>

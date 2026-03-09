@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- ================= PAGE META ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Feedback</title>
+
+<style>
+
+/* ================= GLOBAL STYLES ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+flex-direction:column;
+background:#f9f9f9;
+color:#333;
+overflow:hidden;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= PAGE TITLE ================= */
+h2{
+text-align:center;
+margin:20px 0;
+color:#ff6a00;
+}
+
+/* ================= FEEDBACK SECTION ================= */
+.feedback-container{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ================= FEEDBACK FORM ================= */
+form{
+width:500px;
+padding:25px;
+background:white;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+form input,
+form textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+resize:none;
+}
+
+form input:focus,
+form textarea:focus{
+border-color:#ff6a00;
+outline:none;
+}
+
+form button{
+width:100%;
+padding:10px;
+border:none;
+background:#ff6a00;
+color:white;
+font-weight:600;
+border-radius:50px;
+cursor:pointer;
+transition:0.3s;
+}
+
+form button:hover{
+background:#e65c00;
+}
+
+/* ================= FOOTER ================= */
+footer{
+height:60px;
+background:#111;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+<div class="logo">University Hub</div>
+<ul>
+ <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+</ul>
+
+<div class="hamburger" onclick="document.querySelector('ul').classList.toggle('show-menu')">
+☰
+</div>
+
+</nav>
+
+<!-- ================= PAGE TITLE ================= -->
+<h2>Submit Your Feedback</h2>
+
+<!-- ================= FEEDBACK FORM ================= -->
+<div class="feedback-container">
+
+<form id="feedbackForm">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea rows="5" placeholder="Your Feedback" required></textarea>
+
+<button type="submit">Submit Feedback</button>
+
+</form>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+© 2026 University Hub
+</footer>
+
+<script>
+
+document.getElementById('feedbackForm').addEventListener('submit',function(e){
+
+e.preventDefault();
+
+alert('Thank you for your feedback!');
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

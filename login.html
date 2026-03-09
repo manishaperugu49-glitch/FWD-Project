@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Login</title>
+
+<style>
+
+/* ================= GLOBAL STYLES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+/* ================= LOGIN SECTION ================= */
+.login-section{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.login-box{
+    background:white;
+    padding:40px;
+    width:350px;
+    border-radius:10px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+}
+
+.input-group input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    background:#ff6a00;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.login-btn:hover{
+    background:#e65c00;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav>
+    <div class="logo">University Hub</div>
+</nav>
+
+<!-- ================= LOGIN SECTION ================= -->
+<section class="login-section">
+
+<div class="login-box">
+
+<h2>Login to Your Account</h2>
+
+<form onsubmit="loginUser(event)">
+
+<div class="input-group">
+<label>Username</label>
+<input type="text" id="username" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="password" required>
+</div>
+
+<button type="submit" class="login-btn">Login</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+© 2026 University Hub
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

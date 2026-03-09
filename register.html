@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Hub - Register</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fa;
+color:#333;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: linear-gradient(90deg,#ff6a00,#ffd500);
+    color: white;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav ul li:hover {
+    color: #fffbe6;
+}
+
+nav .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== FORM SECTION ===== */
+.container{
+max-width:500px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+color:#ff6a00;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input, select{
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+input:focus, select:focus{
+outline:none;
+border-color:#ff6a00;
+}
+
+/* Minimal Register Button */
+button{
+padding:12px;
+background:white;
+color:#ff6a00;
+border:2px solid #ff6a00;
+border-radius:6px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff6a00;
+color:white;
+}
+
+/* Message */
+#message{
+margin-top:15px;
+text-align:center;
+font-weight:600;
+}
+
+/* ===== FOOTER ===== */
+footer{
+background:#111;
+color:white;
+padding:30px 5%;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+margin-top:60px;
+}
+
+footer a{
+color:#ff6a00;
+margin-right:15px;
+text-decoration:none;
+}
+
+footer a:hover{
+text-decoration:underline;
+}
+
+@media(max-width:768px){
+nav ul{
+flex-wrap:wrap;
+gap:10px;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+<div class="logo">University Hub</div>
+<ul>
+ <li onclick="location.href='index.html'">Home</li>
+        <li onclick="location.href='dashboard.html'">Dashboard</li>
+        <li onclick="location.href='academic.html'">Academic</li>
+        <li onclick="location.href='cultural.html'">Cultural</li>
+        <li onclick="location.href='upcoming.html'">Upcoming</li>
+        <li onclick="location.href='profile.html'">Profile</li>
+        <li onclick="location.href='feedback.html'">Feedback</li>
+        <li onclick="location.href='register.html'">Register</li>
+        <li onclick="location.href='login.html'">Logout</li>
+</ul>
+</nav>
+
+<!-- ===== REGISTER FORM ===== -->
+<div class="container">
+<h2>Event Registration</h2>
+
+<form id="registerForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="text" id="roll" placeholder="Roll Number" required>
+
+<input type="text" id="branch" placeholder="Branch" required>
+
+<select id="event" required>
+<option value="">Select Event</option>
+<option value="AI & Robotics Seminar" data-fee="300">AI & Robotics Seminar</option>
+<option value="Research Paper Presentation" data-fee="200">Research Paper Presentation</option>
+<option value="Campus Music Festival" data-fee="500">Campus Music Festival</option>
+<option value="Arts Exhibition" data-fee="250">Arts Exhibition</option>
+</select>
+
+<input type="text" id="fees" placeholder="Event Fees" readonly>
+
+<button type="submit">Register</button>
+
+<div id="message"></div>
+
+</form>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+<div>© 2026 University Hub</div>
+</footer>
+
+<script>
+
+/* Automatic Fee Display */
+const eventSelect = document.getElementById("event");
+const feesInput = document.getElementById("fees");
+
+eventSelect.addEventListener("change", function(){
+const selectedOption = eventSelect.options[eventSelect.selectedIndex];
+const fee = selectedOption.getAttribute("data-fee");
+feesInput.value = fee ? "₹ " + fee : "";
+});
+
+/* Form Submission */
+document.getElementById("registerForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const eventName = eventSelect.value;
+const fee = feesInput.value;
+
+if(eventName === ""){
+alert("Please select an event");
+return;
+}
+
+let registeredEvents = JSON.parse(localStorage.getItem("registeredEvents")) || [];
+
+registeredEvents.push({
+name:name,
+event:eventName,
+fee:fee
+});
+
+localStorage.setItem("registeredEvents", JSON.stringify(registeredEvents));
+
+document.getElementById("message").innerHTML = "✅ Registration Successful! You are verified for the event.";
+
+this.reset();
+feesInput.value="";
+
+});
+
+</script>
+
+</body>
+</html>
